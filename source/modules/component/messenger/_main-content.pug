@@ -1,0 +1,69 @@
+//-------------------------------------------------------
+//- Modules :: MainContent - dashboard
+//-------------------------------------------------------
+include ../../common/_input
+include ../../common/_avatar
+
+.chat-container
+  h1.chat-container__heading Chat
+  .chat-container__center
+    .inbox-people
+      +formSearch
+      .inbox-chat
+        each ent in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+          .inbox-chat__poeple
+            .inbox-chat__avatar
+              - if(ent == 7) 
+                .inbox-chat__group
+                  +avatar({altName: "Jully Maria", imgSrc: "../../../images/staff_03.png", className: "inbox-chat__group-avatar"})
+                  +avatar({altName: "Jully Maria", imgSrc: "../../../images/Staff_07.png", className: "inbox-chat__group-avatar inbox-chat__group-avatar--after"})
+              - else
+                +avatar({altName: "Jully Maria", imgSrc: "../../../images/staff_05.png", className: "inbox-chat__avatar-img"})
+            .inbox-chat__message
+              - if(ent == 7) 
+                h2.inbox-chat__account-name Group maria
+              - else
+                h2.inbox-chat__account-name Jullia
+              span.inbox-chat__last-mess Welcome
+            .inbox-chat__info
+              .inbox-chat__info-time 02 Feb
+              - if(ent == 1 || ent == 3 || ent == 7)
+                .inbox-chat__info-quantity 5
+    .chat-box
+      h2.chat-box__title Jullia
+        i.fas.fa-cog.fa-xs.setting-icon
+      .chat-box__mess
+        each ent in [1, 2, 3]
+          .friend-message
+            .friend-message__info
+              .friend-message__avatar
+                +avatar({altName: "Jully Maria", imgSrc: "../../../images/staff_03.png", className: "friend-message__avatar-img"})
+              .friend-message__timeline
+                span.friend-message__time 5:00
+            .friend-message__content
+              ul.chat-list
+                li.chat-item Wellcome
+          .my-message
+            .chat-item.chat-item--mine I want to ask something
+          .friend-message.friend-message--more
+            .friend-message__info
+              .friend-message__avatar
+                +avatar({altName: "Jully Maria", imgSrc: "../../../images/staff_03.png", className: "friend-message__avatar-img"})
+              .friend-message__timeline
+                span.friend-message__time 5:00
+            .friend-message__content
+              ul.chat-list
+                li.chat-item.chat-item--friend I'm Ok
+                li.chat-item.chat-item--friend If you have any question, ask me anytime
+                li.chat-item.chat-item--friend Hi hi!
+      .chat-box__action
+        form.send-message
+          ul.send-message__media
+            li.send-message__media-icon
+              img.send-message__icon(src="./images/smile-solid.svg", alt="emo icon")
+            li.send-message__media-icon
+              img.send-message__icon(src="./images/paperclip-solid.svg", alt="file icon")
+            li.send-message__media-icon
+              img.send-message__icon(src="./images/image-regular.svg", alt="image icon")
+          +inputElement({type: "text", name: "message", placeholder: "Type a message...", className: "send-message__content"})
+          i.fas.fa-paper-plane.chat-submit

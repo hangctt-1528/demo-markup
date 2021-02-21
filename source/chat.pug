@@ -1,0 +1,10 @@
+extends modules/layout/_page-other
+include modules/_sidebar
+
+block head
+  +head('HotelManagement Chat')
+
+block body
+  .wrapper
+    +sidebar('Chat')
+    include modules/component/messenger/_main-content

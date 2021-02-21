@@ -1,0 +1,136 @@
+
+.sidebar {
+  width: 120px;
+  min-height: 100%;
+  border-right: 1px solid $gray-small;
+  position: fixed;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+
+  &__img {
+    width: 65px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.account {
+  position: absolute;
+  bottom: 0;
+
+  &-info {
+    flex-direction: column;
+    position: relative;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__avatar {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 8px;
+    }
+
+    &__name {
+      color: $gray-medium;
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      font-weight: 400;
+      line-height: getlineheight(12, 14);
+      font-style: normal;
+      padding-right: 3px;
+    }
+  }
+
+  &-logout {
+    width: 120px;
+    height: 36px;
+    background: $green_01;
+    color: $white;
+    border: 0;
+    text-transform: uppercase;
+    outline: none;
+    transition: all .3s ease;
+    font-size: $font-size-small;
+    font-weight: 700;
+    line-height: getlineheight(12, 14);
+  }
+
+  &-logout:hover {
+    background: $green-medium;
+  }
+
+  &-logout:focus {
+    border: 0;
+    outline: none;
+  }
+
+  .room-info__size {
+    padding-top: 15px;
+  }
+}
+
+.menu-bar {
+  margin-top: 12px;
+  height: calc(100vh - 150px - 120px);
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-icon {
+  line-height: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: $gray-medium;
+
+  &--active {
+    border-right: 3px solid $green-lighter;
+    color: $green-lighter;
+  }
+
+  &__link {
+    color: inherit;
+    position: relative;
+
+    &--dot:after {
+      content: '';
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      background: $red;
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      border: 1px solid $white;
+    }
+  }
+
+  &__link:hover {
+    color: $green-lighter;
+  }
+}
+
+.option-icon {
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.logout-icon {
+  padding-left: 6px;
+  cursor: pointer;
+}

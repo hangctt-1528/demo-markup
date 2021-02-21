@@ -1,0 +1,16 @@
+//-------------------------------------------------------
+//- Modules :: Head
+//- All content in <head>...</head>
+//-------------------------------------------------------
+
+mixin head(title)
+  title= title
+  meta(charset='utf-8')
+  meta(name='description' content=title)
+  meta(name='keywords' content=title)
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='icon' href='/favicon.ico')
+  link(href='https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/main.css')
+  link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
+  script(src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript")

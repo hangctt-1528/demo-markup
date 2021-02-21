@@ -1,0 +1,12 @@
+//-------------------------------------------------------
+//- Modules :: banner advertisement - dashboard
+//-------------------------------------------------------
+- const partners = [{imgSrc: "./images/booking.png", percentage: "20%"}, {imgSrc: "./images/TA_logo_primary.png", percentage: "14%"}, {imgSrc: "./images/expedia.png", percentage: "25%"}, {imgSrc: "./images/Order directly.png", percentage: "41%"}];
+
+.partner-list
+    each ent, num in partners
+      .partner-item
+        .partner-item__logo
+          a.partner-item__link(href="#")
+            img.partner-item__img(src=ent.imgSrc, alt="logo")
+        .partner-item__percent= ent.percentage

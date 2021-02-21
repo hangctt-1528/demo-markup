@@ -1,0 +1,27 @@
+{
+  "pageList": {
+    "data": [{
+        "title": "Style Guides",
+        "url": "styleguides"
+      }, {
+        "title": "Login",
+        "url": "login",
+        "categories": "Authentication"
+      }, {
+        "title": "Forgot password",
+        "url": "forgot-password",
+        "categories": "Authentication"
+      }, {
+        "title": "Home",
+        "url": "home"
+      }
+      , {
+        "title": "Dashboard",
+        "url": "dashboard"
+      }, {
+        "title": "Chat",
+        "url": "chat"
+      }
+    ]
+  }
+}

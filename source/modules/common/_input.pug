@@ -1,0 +1,12 @@
+//-------------------------------------------------------
+//- Modules :: Input
+//-------------------------------------------------------
+
+mixin inputElement({type, name, placeholder, className})
+  input.input(type= type, name= name, placeholder= placeholder, class= className)
+
+mixin formSearch()
+  form.search-form(method='POST')
+    +inputElement({type: "text", name: "search", placeholder: "Search...", className: "search-input"})
+    button.search-submit
+      i.fas.fa-search.fa-lg

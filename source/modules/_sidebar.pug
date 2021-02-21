@@ -1,0 +1,48 @@
+//-------------------------------------------------------
+//- Modules :: Sidebar
+//-------------------------------------------------------
+
+mixin sidebar(data)
+  #mySidebar.sidebar
+    .logo
+      a.logo__link(href="/")
+        img.logo__img(src='./images/logo.png', alt='logo')
+    .menu-bar
+      ul.menu-list
+        - if(data == 'Home')
+            li.menu-icon.menu-icon--active
+              a.menu-icon__link
+                i.fas.fa-home.fa-lg
+        - else
+            li.menu-icon
+              a.menu-icon__link
+                i.fas.fa-home.fa-lg
+        li.menu-icon
+          a.menu-icon__link(href="#")
+            i.fas.fa-map.fa-lg
+        li.menu-icon
+          a.menu-icon__link(href="#")
+            i.fas.fa-calendar-alt.fa-lg
+        - if( data == 'Chat')
+            li.menu-icon.menu-icon--active
+              a.menu-icon__link
+                i.fas.fa-comment-dots.fa-lg
+        - else
+            li.menu-icon
+              a.menu-icon__link(href="#")
+                i.fas.fa-comment-dots.fa-lg
+        li.menu-icon
+        li.menu-icon
+          a.menu-icon__link.menu-icon__link--dot(href="#")
+            i.fas.fa-bell.fa-lg
+        li.menu-icon
+          a.menu-icon__link(href="#")
+            i.fas.fa-cog.fa-lg
+    .account
+      .account-info
+        a.account-info__link(href="/")
+          img.account-info__avatar(src='./images/staff_10.png', alt='JULLY MARIA')
+        span.account-info__name jully maria
+          i.fas.fa-angle-down.option-icon
+      button.account-logout(type='button' class='btn-logout') logout
+        i.fas.fa-sign-out-alt.logout-icon

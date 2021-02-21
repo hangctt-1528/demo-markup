@@ -1,0 +1,11 @@
+extends modules/layout/_page-other
+include modules/_sidebar
+
+block head
+  +head('Hotel Management')
+
+block body
+  .wrapper
+    +sidebar('Home')
+    #main.container-content
+      include modules/component/dashboard/_main-content

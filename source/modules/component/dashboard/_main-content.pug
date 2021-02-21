@@ -1,0 +1,127 @@
+//-------------------------------------------------------
+//- Modules :: MainContent - dashboard
+//-------------------------------------------------------
+include ../../common/_input
+include ../../common/_avatar
+
+- const notices = [{date: "2019/08/10", content: "Notice about insurance mode", promotion: ""}, {date: "2019/08/10", content: "Notice about insurance mode", promotion: "10%"}, {date: "2019/08/10", content: "Notice about insurance mode", promotion: "10%"}, {date: "2019/08/10", content: "Notice about insurance mode", promotion: ""}]
+.main-content
+  //- button#open-sidebar.openbtn(onclick="openNav()") ☰
+  .top-nav
+    .top-nav__group-title
+      button#open-sidebar.openbtn(onclick="openNav()") ☰
+      h1.top-nav__text Dashboard
+    +formSearch
+  include ./_partner
+  include ./_booking-list
+  .main-content__bottom
+    ul.notice-list
+      each ent, num in notices
+        li.notice-item
+          div.notice-item__date= ent.date
+          div.notice-item__content
+            - if(ent.promotion !== "")
+              span.notice-content__pro= ent.promotion
+            a.notice-content__link(href="/")
+              span.notice-content__text= ent.content
+          a.notice-item__detail(href="/")
+            img(src='./images/arrow_icon.png' alt='arrow icon')
+    .report-message
+      h4.report-message__heading new report to all staff
+      p.report-message__content In order to improve the quality of service and security of the hotel, all employees must wear uniforms and tags during working hours.
+      a.report-message__see-more(href="/") see more
+.sub-content
+  .sub-content__heading
+    h4.sub-content__heading-text.heading-title September Report
+    .sub-content__heading-icon
+      i.fas.fa-calendar-alt
+  .sub-content__report
+    .report-item
+      .report-item__logo
+        a.report-item__logo-link(href="#")
+          +avatar({altName: "bed img", imgSrc: "../../../images/bed.svg", className: "report-item__logo-img"})
+      .report-item__content
+        h4.report-item__title Room
+        ul.report-item__list
+          li.report-item__row
+            span.report-item__row-label Total Revenue
+            span.report-item__row-value 3450$
+          li.report-item__row
+            span.report-item__row-label Room are availble
+            span.report-item__row-value 6
+              i.fas.fa-angle-down.option-icon
+    .report-item
+      .report-item__logo.report-item__logo--bg-secondary
+        a.report-item__logo-link(href="#")
+          +avatar({altName: "bed img", imgSrc: "../../../images/reception-bell.svg", className: "report-item__logo-img"})
+      .report-item__content
+        h4.report-item__title Restaurant
+        ul.report-item__list
+          li.report-item__row
+            span.report-item__row-label Total Revenue
+            span.report-item__row-value 3450$
+          li.report-item__row
+            span.report-item__row-label Drink
+            span.report-item__row-value 1290$
+          li.report-item__row
+            span.report-item__row-label Foods
+            span.report-item__row-value 1290$
+    .report-item
+      .report-item__logo.report-item__logo--bg-purple
+        a.report-item__logo-link(href="#")
+          +avatar({altName: "bed img", imgSrc: "../../../images/spa.svg", className: "report-item__logo-img"})
+      .report-item__content
+        h4.report-item__title Spa
+        ul.report-item__list
+          li.report-item__row
+            span.report-item__row-label Total Revenue
+            span.report-item__row-value 3450$
+          li.report-item__row
+            span.report-item__row-label Foot Message
+            span.report-item__row-value 1290$
+          li.report-item__row
+            span.report-item__row-label Body Message
+            span.report-item__row-value 1290$
+  .staff-list
+    .staff-list__heading
+      h4.heading-title Staff in hotel
+    .staff-list__content
+      ul.staff-list__avatar
+        each ent, num in [1, 2]
+          li.staff-list__avatar-row
+            +avatar({altName: "staff img", imgSrc: "../../../images/staff_01.png", className: "staff-list__avatar-img"})
+            +avatar({altName: "staff img", imgSrc: "../../../images/staff_02.png", className: "staff-list__avatar-img"})
+            +avatar({altName: "staff img", imgSrc: "../../../images/staff_03.png", className: "staff-list__avatar-img"})
+            +avatar({altName: "staff img", imgSrc: "../../../images/staff_04.png", className: "staff-list__avatar-img"})
+
+script.
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "100px";
+    document.getElementById("mySidebar").style.marginLeft = "0";
+    document.getElementById("main").style.backgroundColor = 'rgba(0,0,0,0.3)';
+  }
+
+  var specifiedElement = document.getElementById('mySidebar');
+  var x = window.matchMedia("(max-width: 500px)");
+  clearResponsive(x);
+  x.addListener(clearResponsive);
+
+  function clearResponsive(x) {
+    if (!x.matches) {
+      document.getElementById("mySidebar").style.width = "120px";
+      document.getElementById("mySidebar").style.marginLeft = "0";
+    } else {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("mySidebar").style.marginLeft = "-100px";
+    }
+  }
+
+  document.addEventListener('click', function(event) {
+    var isClickInside = specifiedElement.contains(event.target);
+
+    if (!isClickInside && specifiedElement.clientWidth > 0) {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("mySidebar").style.marginLeft = "-100px";
+      document.getElementById("main").style.backgroundColor = 'rgba(0,0,0,0)';
+    }
+  });

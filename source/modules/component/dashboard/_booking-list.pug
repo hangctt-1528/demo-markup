@@ -1,0 +1,26 @@
+//-------------------------------------------------------
+//- Modules :: booking list - dashboard
+//-------------------------------------------------------
+.booking-list
+  each ent in [1, 2]
+    .booking-item
+      .booking-item__top
+        .booking-item__top-left
+          span.booking-item__top-label Booking Rate
+          span.booking-item__top-value 30%
+        .booking-item__top-right
+          span.booking-item__top-label Rooms are available
+          span.booking-item__top-value 4
+      .booking-item__content
+        .room-image
+          img.room-image__img(src="./images/room-image-2.png" alt='room-image')
+          a(href="/" class='btn-edit') 
+            i.fas.fa-pencil-alt
+            span Edit
+        .room-info
+          h4.room-info__name Deluxe double Room
+          span.room-info__size Room Size 20m2
+          span.room-info__des room is air-conditioned and includes a flat -screen TV with DVD playrs, ....
+.see-more
+  a.see-more__link(href="/") see more
+  i.fas.fa-sort-down
